@@ -1,4 +1,4 @@
-#Welcome to the TS/BootCamp/excercise01
+# Welcome to the TS/BootCamp/excercise01
 
 The first lab, is just to make sure your environment 
 

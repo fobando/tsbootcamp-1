@@ -1,8 +1,8 @@
-#Welcome to the TS/BootCamp
-##This is a public git repo, it will contain the hangouts,labs and exercises for you to pull out and complete.
+# Welcome to the TS/BootCamp
+## This is a public git repo, it will contain the hangouts,labs and exercises for you to pull out and complete.
 
 **To clone the this repo type the following commands**
-####Provided you install the nodejs , npm and typescript environment first.
+### Provided you install the nodejs , npm and typescript environment first.
 
 ```
 git clone -s https://github.com/marioestradarosa/tsbootcamp.git
