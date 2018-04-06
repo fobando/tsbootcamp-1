@@ -15,7 +15,7 @@ class App {
 
      
     router.get('/', (req, res) => {
-      got.get("https://mobdev001.belizebank.com/helloworld.php").then (
+      got.get("REPLACE HERE WITH YOUR OWN END POINT").then (
         resp => {
             res.json({
               resp : resp.body
