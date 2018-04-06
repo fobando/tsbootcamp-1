@@ -7,8 +7,8 @@ console.log(Greeter('Jonathan'));
 console.log(moment().format('YYYY-MM-DD HH:mm:ss'));
 
 
-let teamA = ["felliece","david","francisco"];
-let teamB = ["jose","hassaram","Yassiry","Gustavo"];
+let teamA = ["Felliece","David","Francisco","Rona","Sayda"];
+let teamB = ["Jose","Hassaram","Yssiry","Gustavo"];
 
 let teamX = _.union(teamA,teamB);
 

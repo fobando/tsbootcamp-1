@@ -15,7 +15,7 @@ git clone -s https://github.com/marioestradarosa/tsbootcamp.git
 git pull
 ```
 
-**To run each of the excercises run the following commands inside each directory **
+**To run each of the excercises run the following commands inside each directory**
 
 ```
 npm install
