@@ -22,7 +22,7 @@ This lab shows the good practice of programming using the following:
 We use lodash to properly manage the array of objects that simulates at this moment our database.  
 
 **Assuming you are inside the finalLabStandAlone directory,
-to install the node_modules use the following command.
+to install the node_modules use the following command.**
 
 ```
 npm install
