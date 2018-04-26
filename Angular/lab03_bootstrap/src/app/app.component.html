@@ -1,0 +1,35 @@
+<div class="jumbotron text-center">
+  <h1>{{ title }}</h1>
+  <p>We are building a better UI for our ATM machine</p> 
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>{{currentOperation}}</h3>
+      <p>Account No.  {{acct}} </p>
+      <p>Balance      {{balance | currency }}</p>
+    </div>
+    <div class="col-sm-6">
+      
+        <table class="table table-striped">
+          <thead>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Amount</th>
+          </thead>
+          <tbody>
+                <tr *ngFor="let item of lastTransactions">
+                    <td>{{item.dateOfTransaction}}</td>
+                    <td>{{item.transactionType}}</td>
+                    <td>{{item.amount}}</td>
+                </tr>
+          </tbody>
+        </table>
+    </div>
+    
+  </div>
+</div>
+
+
+ 
