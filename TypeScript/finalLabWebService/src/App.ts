@@ -19,6 +19,7 @@ export class App {
 private mountAtmRoutes(){
 
        const atmLive = express.Router();
+       const atmFind = express.Router();
        const atmWithDraw = express.Router();
        const atmDeposit  = express.Router();
        const atmBalance = express.Router();
@@ -31,7 +32,28 @@ private mountAtmRoutes(){
               });
         });
 
-        atmBalance.get('/atm/:acct', (req,resp) => {
+
+	atmFind.get('/atm/find/:acct', (req,resp) => {
+
+         if (this.atm.accountExists(req.params.acct)) {
+                resp.json({
+                    status  : 0,
+                    message : 'ok'
+                 });
+         }
+         else {
+                resp.json({
+                    status  : -100,
+                    message : 'Account not found'
+                });
+         }
+            
+        } );
+
+
+	atmBalance.get('/atm/:acct', (req,resp) => {
+	    console.log("Balance, Acct ", req.params.acct);
+	    
             resp.json({
                   accountNumber  : req.params.acct,
                   currentBalance : this.atm.getCurrentBalance(req.params.acct)
@@ -66,7 +88,8 @@ private mountAtmRoutes(){
 
         //We have to make sure express knows about our routes
 
-        this.webService.use(atmLive);
+	this.webService.use(atmLive);
+	this.webService.use(atmFind);
         this.webService.use(atmBalance);
         this.webService.use(atmTransactions);
         this.webService.use(atmDeposit);

@@ -18,7 +18,7 @@ export class Atm implements AtmInterface {
           this.transactionList = new TransactionList();
      }
 
-     private accountExists(acct : string ) : boolean {
+     public accountExists(acct : string ) : boolean {
         return _.some(this.localDB.accounts,{'accountNumber' : acct});
      }
 
