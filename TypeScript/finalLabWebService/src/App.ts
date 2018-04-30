@@ -62,6 +62,8 @@ private mountAtmRoutes(){
 
         atmTransactions.get('/atm/transactions/:acct', (req,resp)=> {
 
+	    console.log('Transaction List');
+
             resp.json({
                 accountNumber  : req.params.acct,
                 transactions : this.atm.getLastOperations(req.params.acct).transactions
@@ -69,7 +71,9 @@ private mountAtmRoutes(){
 
         });
 
-        atmDeposit.get('/atm/deposit/:acct/amount/:amount', (req,resp)=>{
+	atmDeposit.get('/atm/deposit/:acct/amount/:amount', (req,resp)=>{
+	    console.log('Deposit');
+
             resp.json ({
                 accountNumber  : req.params.acct,
                 currentBalance : this.atm.deposit(req.params.acct,
@@ -78,7 +82,9 @@ private mountAtmRoutes(){
             });
         })
 
-        atmWithDraw.get('/atm/withdraw/:acct/amount/:amount',(req,resp)=>{
+	atmWithDraw.get('/atm/withdraw/:acct/amount/:amount',(req,resp)=>{
+	    console.log('withdraw');
+
             resp.json({
                 accountNumber : req.params.acct,
                 currentBalance : this.atm.withDraw(req.params.acct,

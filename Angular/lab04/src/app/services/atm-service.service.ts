@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
 import { Subject }    from 'rxjs/Subject';
-
+ 
 import { AtmResponse ,AtmResponseOperation,AtmResponseTransactions } from '../models/atm.interface';
 
 @Injectable()
