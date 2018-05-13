@@ -1,16 +1,17 @@
 import { MongoClient,FilterQuery } from 'mongodb';
 
 export class DbConnection {
-   // mongodb://<dbuser>:<dbpassword>@ds119306.mlab.com:19306/mario
 
-  /* place your own credentials here */
-     private _userName   : string = "xx";
-     private _passWord   : string = "xx";
-     private _dbName     : string = "xx";
-     private _hostName   : string = "xxx";
-     private _portNumber : string = "xxx";
+   /* place your own MONGODB credentials here */
+
+    private _userName   : string = "xx";
+    private _passWord   : string = "xx";
+    private _dbName     : string = "xx";
+    private _hostName   : string = "xx";
+    private _portNumber : string = "xx";
+     
      private _dbAutoReconnectOption : object =  {auto_reconnect: true};
-
+     
      private _connection : any;
      private  _db  : any;
 

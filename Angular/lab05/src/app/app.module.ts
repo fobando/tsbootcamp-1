@@ -22,14 +22,13 @@ const myRoutes : Routes = [
 
     { path : 'auth' , component : AuthenticateComponent },
     { path : '' , redirectTo : '/auth', pathMatch : 'full' },
-    { path : 'mainoperation' , component : MainopComponent}, 
 
-    { path : 'transactionlist' , component : TransactionListComponent,
-      outlet : 'insideatm' },
-
-    { path : 'operations' , component : AtmoperationsComponent,
-      outlet : 'insideatm' }   
-     
+    { path : 'mainoperation' , component : MainopComponent,
+        children:  [ 
+          { path : 'transactionlist' , component : TransactionListComponent},
+          { path : 'operations' ,      component : AtmoperationsComponent }
+         ]
+    } 
 ];
 
 @NgModule({
@@ -44,7 +43,7 @@ const myRoutes : Routes = [
   imports: [
     BrowserModule  ,
     HttpClientModule,
-    RouterModule.forRoot(myRoutes),
+    RouterModule.forRoot(myRoutes,{ enableTracing: true }),
     ReactiveFormsModule
   ],
   //We have to import the service as a provider in the NGModule ecosystem
