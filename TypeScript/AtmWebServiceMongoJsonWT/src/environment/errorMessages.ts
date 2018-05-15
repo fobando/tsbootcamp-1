@@ -6,6 +6,7 @@ export const errorMessages  =  {
  ACCOUNTS_DONT_MATCH   : { status : -102, message : "Accounts do not match"},
  NO_TOKEN_PROVIDED     : { status : -103, message : "No token provided"},
  TOKEN_NOT_VALID       : { status : -104, message : "Invalid token supplied"},
- INVALID_API_KEY       : { status : -105, message : "Invalid API Key"}
+ INVALID_API_KEY       : { status : -105, message : "Invalid API Key" },
+ INSUFFICIENT_FUNDS    : { status : -106, message : "Insufficient Funds"}
 
 }
