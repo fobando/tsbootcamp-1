@@ -5,7 +5,7 @@
 
 export const environment = {
       production: false,
-      urlEndPoint : "http://localhost:3000/atm",
+      urlEndPoint: "http://localhost/api",
       title : "Atm Project",
       apiKey: "heregoesastrongpasswordfortheApiKey" 
 };

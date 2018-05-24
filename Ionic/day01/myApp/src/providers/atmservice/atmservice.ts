@@ -1,13 +1,16 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { Observable } from 'rxjs/observable';
 import { Subject } from 'rxjs/Subject';
 import { environment } from '../../environments/environment';
 
-import { AtmResponse , AtmResponseOperationBalance , AtmResponseOperation , AtmResponseTransactions } from '../models/atm.interface';
+import { AtmResponse , AtmResponseOperationBalance ,
+   AtmResponseOperation , AtmResponseTransactions }
+    from '../../models/atm.interface';
 
 @Injectable()
-export class AtmServiceService {
+export class AtmserviceProvider {
 
     public onUpdatedTransactions$ = new Subject<void>();
     public onUpdateAccountNumber$ = new Subject<void>();
@@ -23,19 +26,31 @@ export class AtmServiceService {
 
   getToken():string { return this.token !== undefined ? this.token : '' ; }
 
-  setAccountNumber(acct:string, pin:string){
-      this.accountExists(acct,pin).then ( resp => {
-          if (resp.status === 0 ){
-                this.accountNumber = acct;
-                this.accountValid = true;
-                this.token = resp.token;
-                this.onUpdateAccountNumber$.next();
-          } else {
-               this.accountValid = false;
-          }
-      });
+  setAccountNumber(acct:string, pin:string) : Promise<boolean> {
+
+    return new Promise( (succ,reject)=> {
+
+            this.accountExists(acct,pin).then ( resp => {
+              
+              if (resp.status === 0 ){
+                    this.accountNumber = acct;
+                    this.accountValid = true;
+                    this.token = resp.token;
+                    this.onUpdateAccountNumber$.next();
+                    succ(true);
+
+              } else {
+                  this.accountValid = false;
+                  reject(false);
+              }
+          });
+
+
+    });
 
   }
+
+
   getAccountNumber() {
       return this.accountNumber;
   }

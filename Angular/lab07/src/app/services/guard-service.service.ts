@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import {AtmServiceService  } from '../services/atm-service.service';
+import { AtmServiceService  } from '../services/atm-service.service';
 
 @Injectable()
 export class GuardServiceService implements CanActivate {
 
   constructor(public atmService : AtmServiceService, public router : Router ) { }
 
-  canActivate() : boolean {
+  canActivate(): boolean {
    if (this.atmService.accountValid) {
          return this.atmService.accountValid;
-   }
-   else {
+   } else {
      this.router.navigate(['/auth']); return false;
-          
    }
   }
 
