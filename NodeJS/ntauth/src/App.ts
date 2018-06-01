@@ -50,23 +50,20 @@ export class App {
         ]
         });
 
-
-        //lets mount the auth route from here
+         //lets mount the auth route from here
         const mountedRoute = express.Router();
 
          mountedRoute.post(route.AUTHENTICATE,(req,resp) => {
  
-                this.logger.info("Receiving Authentiction request for user " + req.body.username);
-
-               
+                this.logger.info("Receiving Authentiction request for user " + req.body.username);         
                 resp.json(
                       this.ldap.authenticate(req.body.username,req.body.password,req.body.group)
                 );
          });
 
-
         this.authService.use(mountedRoute);
 
     }  //end of constructor()
+    
 }  //end of class definition
 export default new App().authService;

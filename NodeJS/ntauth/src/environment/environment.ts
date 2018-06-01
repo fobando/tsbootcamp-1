@@ -12,7 +12,7 @@ export const environment = {
     development : true,
     ldapConfig   : {
        		url: 'ldap://127.0.0.1',
-   		baseDN: 'dc=testfbe,dc=com',
+      		baseDN: 'dc=testfbe,dc=com',
     		username: 'ibusr@testfbe.com',
     		password: 'P@ss54321'
     },

@@ -21,7 +21,7 @@ export class LDAP {
 
         var retObj : user =  <null>{};
 
-         retObj = environment.INVALID_CREDENTIALS;        
+        retObj = environment.INVALID_CREDENTIALS;        
 
         this.ad.authenticate(username, password, (err,auth) =>{
             if (auth) {
@@ -29,10 +29,10 @@ export class LDAP {
                     if (isMember) {
 
                         this.ad.findUser(username, (err,retuser) => {
-
-                            
+     
                              if (retuser) {
-                                console.log(retuser.displayName);
+
+                                 console.log(retuser.displayName);
                                  retObj =environment.OK_MESSAGE;
                                  retObj.displayName = retuser.displayName;
                              }
@@ -46,7 +46,7 @@ export class LDAP {
             }
         });
        console.log(retObj);
-        return retObj;
+       return retObj;
     }
     
 }
