@@ -16,6 +16,9 @@ import { Subject } from 'rxjs/Subject';
 import { HttpClient } from '@angular/common/http';
 import { UserAuth, UserLogged } from '../models/user.interface';
 
+
+import { TestUsers } from '../models/testtable.interface';
+
 @Injectable()
 export class LoginService {
 
@@ -37,25 +40,23 @@ export class LoginService {
 
    return new Promise((succ, reject) => {
 
-         // Todo:
-         // Implement the http service to talk to the Authentication endpoint
-         // as configured in the environment.ts
+      this.http.get<UserLogged>('./assets/mockup/successLogin.json').toPromise()
+         .then (data => {
 
-         // Assign the returned value to the local property object
-         this.user.displayName = 'Jdoe';
-         this.user.role = 'Admin';
+            if (data.status === 0) {
+                  this.user = data;
+                  // Assign it from the local parameter as it does not come in the response
+                  this.user.username = user.username;
+                  // Make it logged
+                  this.isLogged = true;
+                  // Emit a new onLogin$ event with the user Object
+                  this.onLogin$.next(this.user);
+                  succ(this.user);
+            } else {
+                  reject(data.message);
+            }
 
-         // Assign it from the local parameter as it does not come in the response
-         this.user.username = user.username;
-
-         // Make it logged
-         this.isLogged = true;
-
-         // Emit a new onLogin$ event with the user Object
-         this.onLogin$.next(this.user);
-
-         // return a successfull promise with the user object
-         succ(this.user);
+      }).catch (err => { reject(err);  });
 
    });
 
@@ -69,6 +70,10 @@ export class LoginService {
          // emit the logout event with a void vaue, no need to send any info
          this.onLogOut$.next();
 
+  }
+
+  getMockData(): Observable<TestUsers[]> {
+        return this.http.get<TestUsers[]>('./assets/mockup/table.data.json');
   }
 
 }

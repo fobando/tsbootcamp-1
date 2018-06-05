@@ -1,15 +1,17 @@
  import { NgModule } from '@angular/core';
  import {MatButtonModule, MatCheckboxModule, MatToolbarModule,
-  MatMenuModule,MatDialogModule,
-   MatIconModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+  MatMenuModule, MatDialogModule, MatSnackBarModule, MatTableModule,
+   MatIconModule, MatFormFieldModule, MatInputModule,
+   MatPaginatorModule } from '@angular/material';
 
-const mariosMaterialModules = [
-  MatButtonModule, MatCheckboxModule, MatIconModule, MatFormFieldModule,
-  MatToolbarModule, MatInputModule, MatMenuModule, MatDialogModule
+const MaterialModules = [
+  MatButtonModule, MatCheckboxModule, MatIconModule, MatFormFieldModule, MatTableModule,
+  MatToolbarModule, MatInputModule, MatMenuModule, MatDialogModule, MatSnackBarModule,
+  MatPaginatorModule
 ];
 
  @NgModule({
-  imports: [...mariosMaterialModules],
-  exports: [...mariosMaterialModules]
+  imports: [...MaterialModules],
+  exports: [...MaterialModules]
 })
 export class MaterialModule { }

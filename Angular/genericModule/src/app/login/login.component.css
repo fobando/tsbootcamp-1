@@ -1,36 +1,22 @@
- 
-  
-  .login-content {
-    padding: 24px 42px 42px;
+.main-container {
+    margin-top:50px;
 
-    .mat-form-field {
-      width: 100%;
-    }
-
-    .extra-options {
-      margin: 16px 0 32px;
-      
-         .remember-me {
-              color: #777;
-           }
-    }
-  }
-
-  .login{
-    background: white;
-    height:100%;
-    margin-top: 100px;
-   }
-   
-   .login-header {
+}
+.login-header {
     background: #31B93B;
     color : #ffff;
     padding: 12px;
-  }   
-
-  .login-form {
-    min-width: 450px;
-    max-width: 600px;
+  }  
+.login-content {
+    padding: 24px 42px 42px;
+    width:100%;  
+ }
+ 
+ .red-snackbar {
+    color : white;
+    background-color: red;
+}
+.login-form {
+    min-width: 300px;
+    max-width: 500px;
    }
-  
-  

@@ -10,18 +10,21 @@ import { RoutingModule } from './router.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { HelloComponent } from './components/hello/hello.component';
-import { LoginService } from './services/login.service';
+ import { LoginService } from './services/login.service';
 import { MainComponent } from './components/main/main.component';
 import { RouteGuardService } from './services/route-guard.service';
 import { HttpInterceptorService } from './services/http-interceptor.service';
-
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { UtilService } from './services/util.service';
+import { TesttableComponent } from './components/testtable/testtable.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HelloComponent,
-    MainComponent
+    MainComponent,
+    ConfirmationDialogComponent,
+    TesttableComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +35,8 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
     FlexLayoutModule,
     HttpClientModule
   ],
-  entryComponents : [ HelloComponent ],
-  providers: [LoginService, RouteGuardService,
+  entryComponents : [ ConfirmationDialogComponent ],
+  providers: [LoginService, RouteGuardService, UtilService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,

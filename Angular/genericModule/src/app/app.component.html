@@ -6,7 +6,10 @@
   
     <span>&nbsp;{{title}}</span> 
     <span class="fill-remaining-space"></span>
-   
+
+    <button mat-button  *ngIf="displayMenu" (click)="showTable()">
+        Table Sample
+    </button>
 
     <button mat-icon-button  *ngIf="displayMenu" (click)="logOut()">
       <mat-icon>exit_to_app</mat-icon>
